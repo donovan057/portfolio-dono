@@ -6,12 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault(); 
       const targetId = link.getAttribute('href'); 
-      const targetSection = document.querySelector(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // CORRECTION : On bloque le clic SEULEMENT si c'est une ancre (commence par #)
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault(); 
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
+      // Si c'est un lien comme "index.html", on le laisse charger la nouvelle page !
     });
   });
 
@@ -19,9 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnMesProjets = document.querySelector('.btn-primary');
   if (btnMesProjets) {
     btnMesProjets.addEventListener('click', (e) => {
-      e.preventDefault(); 
       const sectionProjets = document.querySelector('#projets');
+      // On bloque le clic seulement si la section existe sur la page actuelle
       if (sectionProjets) {
+        e.preventDefault(); 
         sectionProjets.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -31,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnContact = document.querySelector('.btn-secondary');
   if (btnContact) {
     btnContact.addEventListener('click', (e) => {
-      e.preventDefault();
       const sectionContact = document.querySelector('#contact');
       if (sectionContact) {
+        e.preventDefault();
         sectionContact.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -52,17 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 5. ENVOI DU FORMULAIRE PAR E-MAIL (VIA WEB3FORCE) + RECAPTCHA 
+  // 5. ENVOI DU FORMULAIRE PAR E-MAIL (VIA WEB3FORMS) + RECAPTCHA 
   // ==========================================================================
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    // Attention : on ajoute "async" ici pour pouvoir utiliser "await" plus bas
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // 1. Vérification du Google reCAPTCHA
       const recaptchaResponse = grecaptcha.getResponse();
-      if (recaptchaResponse.lenght === 0) {
+      
+      // CORRECTION : "length" à la place de "lenght"
+      if (recaptchaResponse.length === 0) {
         alert("⚠️ Veuillez valider le test Google reCAPTCHA avant d'envoyer votre message.");
         return;
       }
@@ -79,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true; // Empêche de cliquer deux fois
 
       try {
-        // 3. On envoie les données au "facteurs" Web3Forms
+        // 3. On envoie les données au "facteur" Web3Forms
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
@@ -95,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
-          // 4. Si l'envoie a réussi, on affiche le message de succès !
+          // 4. Si l'envoi a réussi, on affiche le message de succès !
           contactForm.innerHTML = `
           <div style="text-align: center; padding: 2rem 0;">
             <span style="font-size: 3rem;">🎉</span>
@@ -105,14 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         } else {
           // Si l'API Web3Forms a un bug
-          alert("Une erreur est survenu côté serveur. Veuillez réessayer.");
+          alert("Une erreur est survenue côté serveur. Veuillez réessayer.");
           btn.innerHTML = originalBtnText;
           btn.disabled = false;
         }
 
       } catch (error) {
-        // Si le visiteur n'a plus de connextion internet au moment de cliquer
-        alert("Erreur de connexion. Vérifiez votre réseaux internet.");
+        // Si le visiteur n'a plus de connexion internet au moment de cliquer
+        alert("Erreur de connexion. Vérifiez votre réseau internet.");
         btn.innerHTML = originalBtnText;
         btn.disabled = false;
       }
