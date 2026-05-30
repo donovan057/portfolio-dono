@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Développeur Web & Logiciel</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+  <div id="app">
+    <header>
+      <nav class="glass-nav">
+        <div class="logo">
+          <img src="src/img/profil-dev.jpg" alt="Logo de Donovan" class="logo-img">
+          ✨ Dono.dev
+        </div>
+
+        <ul class="nav-link">
+          <li><a href="https://github.com/donovan057" target="_blank">🐙 GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/donovan-rinquebach" target="_blank">💼 LinkedIn</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+      <div class="hero-content">
+        <span class="badge">🚀 En formation & Passionné</span>
+        <h1>Développeur <span class="text-gradient">Web & Logiciel</span></h1>
+        <p class="hero-subtitle">Bienvenue sur mon Portfolio. Découvrez mes applications et mon univers de dev.</p>
+        <div class="hero-buttons">
+          <a href="projets" class="btn btn-primary">Mes projets</a>
+          <a href="mailto:donovanrinquebach25@cloud.com" target="_blank" class="btn btn-secondry">Me contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="projects-section">
+      <h2 class="section-title">Mes <span class="text-gradient">Projets</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card glass">
+          <div class="project-icon">⛅</div>
+          <h3>Weather Dashboard</h3>
+          <p>Application météo avec double source d'API (OpenWeatherMap et Open-Meto) pour un suivi préis en temps réel.</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>API Rest</span>
+            <span>CSS3</span>
+          </div>
+        </div>
+
+        <div class="project-card glass">
+          <div class="project-icon">🎮</div>
+          <h3>Hub Gaming</h3>
+          <p>Portail de centralisation et de recherche de jeux vidéo avec filtres dynamiques.</p>
+          <div class="project-tags">
+            <span>HTML5</span>
+            <span>Node.js</span>
+            <span>Vite</span>
+          </div>
+        </div>
+
+        <div class="project-card glass">
+          <div class="project-icon">🤖</div>
+          <h3>Discord Bot & Script</h3>
+          <p>Automatisation, écoute d'événements et gestion de communauté.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Lua</span>
+            <span>Git</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="competences" class="skills-section">
+      <h2 class="section-title">Mes <span class="text-gradient">Compétences</span></h2>
+      
+      <div class="skills-container">
+        
+        <div class="skill-category glass">
+          <div class="skill-icon">🎨</div>
+          <h4>Frontend</h4>
+          <div class="skill-list">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Vanilla JS</span>
+          </div>
+        </div>
+
+        <div class="skill-category glass">
+          <div class="skill-icon">⚙️</div>
+          <h4>Backend & Scripting</h4>
+          <div class="skill-list">
+            <span>Node.js</span>
+            <span>Python</span>
+            <span>Lua</span>
+          </div>
+        </div>
+
+        <div class="skill-category glass">
+          <div class="skill-icon">🛠️</div>
+          <h4>Outils</h4>
+          <div class="skill-list">
+            <span>Git</span>
+            <span>Linux (WSL 2)</span>
+            <span>Cursor</span>
+            <span>VS Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">Me <span class="text-gradiant">Contacter</span></h2>
+
+      <div class="contact-container glass">
+        <form id="contact-form">
+
+          <div class="form-group">
+            <label for="name">Nom / Entreprise</label>
+            <input type="text" id="name" required placeholder="Votre nom ou structure"
+                   oninvalid="this.setCustomValidity('Veuillez indiquez votre nomn ou votre entreprise.')"
+                   oninput="this.setCustomValidity('')">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse E-mail</label>
+            <input type="email" id="email" required placeholder="votre@email.com"
+                   oninvalid="this.setCustomValidity('Veuillez indiquer une adresse e-mail valide.')"
+                   oninput="this.setCustomValidity('')">
+          </div>
+
+          <div class="form-group">
+            <label for="message"></label>
+            <textarea id="message" rows="5" required placeholder="Discutons de votre projet..."
+                      oninvalid="this.setCustomValidity('N\'oubliez pas de m`\écrire un petit message !')"
+                      oninput="this.setCustomValidity('')"></textarea>
+          </div>
+
+          <div class="form-group" style="align-items: center; margin: 1.5rem 0;">
+            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="consentement" required
+                   oninvalid="this.setCustomValidity('Veuillez cocher cette case pour envoyer votre message.')"
+                   onchange="this.setCustomValidity('')">
+            <label for="consentement">
+              En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de ma demande de contact et de la relation commerciale qui peut en découler.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Envoyer le message ✉️</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 · Développé avec passion sous Linux</p>
+        <div class="footer-links">
+          <a href="mentions-legales.html">Mentions Légales</a>
+          <span class="separator">|</span>
+          <a href="mentions-legales.html">Politique de Confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

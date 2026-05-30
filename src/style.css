@@ -1,0 +1,641 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION DE BASE 
+   ========================================================================== */
+:root {
+  --bg-main: #0b0f19;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --primary-neon: #38bdf8;
+  --secondary-neon: #818cf8;
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(12px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+#app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary-neon), var(--secondary-neon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: 16px;
+}
+
+/* ==========================================================================
+   2. BARRE DE NAVIGATION
+   ========================================================================== */
+header {
+  position: fixed;
+  top: 1.2rem;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 1.5rem;
+}
+
+.glass-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: rgba(11, 15, 25, 0.7);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 50px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none; /* Supprime les puces blanches */
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-neon);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. SECTION ACCUEIL (HERO SECTION)
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: var(--primary-neon);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+/* Base des boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2.2rem; /* Syntaxe corrigée */
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+  color: #000;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--primary-neon);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. SECTION PROJETS & HALO LUMINEUX
+   ========================================================================== */
+.projects-section {
+  padding: 4rem 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Effet de halo lumineux géré par main.js */
+.project-card::before, .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(56, 189, 248, 0.08),
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.project-card:hover::before, .btn:hover::before {
+  opacity: 1;
+}
+
+.project-card *, .btn * {
+  position: relative;
+  z-index: 2;
+}
+
+.project-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem; /* Ajoute de l'espace avant les badges */
+  flex-grow: 1;        /* Pousse toujours les badges tout en bas de la carte */
+}
+
+/* --- HARMONISATION DES TAGS PROJETS (Style Pilules Lumineuses) --- */
+.project-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: auto;   /* Force l'alignement parfait en bas des cartes */
+}
+
+.project-tags span {
+  background: rgba(129, 140, 248, 0.08); /* Teinte violette transparente */
+  color: var(--secondary-neon);          /* Texte violet électrique */
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;                    /* Effet pilule parfait */
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Effet interactif au survol des technos du projet */
+.project-tags span:hover {
+  background: var(--secondary-neon);
+  color: #000;                           /* Le texte passe en noir pour le contraste */
+  box-shadow: 0 0 15px rgba(129, 140, 248, 0.6); /* Lueur violette intense */
+  transform: scale(1.05);                /* Léger grossissement dynamique */
+}
+
+/* ==========================================================================
+   5. SECTION COMPÉTENCES
+   ========================================================================== */
+.skills-section {
+  padding: 4rem 0;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* Nouvelles cartes de compétences */
+.skill-category {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-category h4 {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Le design des petits badges lumineux */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.skill-list span {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--primary-neon);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px; /* Effet pilule arrondi */
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Interaction au survol des badges */
+.skill-list span:hover {
+  background: var(--primary-neon);
+  color: #000;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 6rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .btn {
+    width: 100%;
+  }
+  .skills-container {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   7. SECTION CONTACT (FORMULAIRE)
+   ========================================================================== */
+.contact-section {
+  padding: 6rem 0;
+}
+
+.contact-container {
+  max-width: 600px; /* Boite plus serrée et centrée pour le confort de lecture  */
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espace régulier entre chaque champ */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.form-group label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Style des champs de texte format "Glass" */
+.form-group input, 
+.form-group textarea {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Effet de focus : quand l'utilisateur clique sur un champ pour écrire */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-neon); /* La bordure devient cyan */
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15); /* Légère lueur diffuse cyan */
+}
+
+/* Ajustement du bouton à l'interieur du formulaire */
+#contact-form .btn {
+  margin-top: 1rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================================
+   STYLE DE LA CHECKBOX RGPD
+   ========================================= */
+
+/* Conteneur pour aligner la case et le texte sur la même ligne */
+.checkbox-group {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 1.5rem 0;
+} 
+
+/* Style du texte (label) */
+.checkbox-group label {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Personnalisation de la case à cocher */
+.checkbox-group input[type="checkbox"] {
+  /* 1. On supprime le style par défaut du navigateur */
+  appearance: none;
+  -webkit-appearance: none;
+
+  /* 2. On définit la taille de notre nouvelle case */
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+
+  /* 3. On lui donne le style de ton interface */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Effet au survol de la souris */
+.checkbox-group input[type="checkbox"]:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Style quand la case est cochée */
+.checkbox-group input[type="checkbox"]:checked {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+/* Ajout du petit symbole 'V' quand c'est coché */
+.checkbox-group input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   STYLE MENTIONS LÉGALES (Amélioré)
+   ========================================= */
+
+.legal-main {
+  padding: 160px 5% 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.legal-content {
+  margin-top: 2rem;
+  padding: 4rem; /* Plus d'espace interne pour laisser respirer le texte */
+  border-radius: 25px; /* Arrondis plus marqués pour un look moderne */
+  background: rgba(255, 255, 255, 0.03); /* Transparence subtile */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px); /* Flou plus prononcé pour l'effet verre */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.legal-title {
+  font-size: 2.5rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, #fff, #a0aec0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.legal-section {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.legal-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ajout d'une petite décoration devant les titres */
+.legal-section h2::before {
+  content: "✦";
+  color: #3b82f6;
+  font-size: 1.2rem;
+}
+
+.legal-section p {
+  line-height: 1.8;
+  color: #cbd5e0;
+  font-size: 1.05rem;
+}
+
+/* Style des liens plus élégant */
+.legal-section a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.legal-section a:hover {
+  color: #93c5fd;
+  border-bottom: 1px solid #93c5fd;
+}
+
+/* Lien de retour à l'accueil dans le footer */
+.footer-link {
+  color: inherit;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+/* Responsivité optimisée */
+@media (max-width: 768px) {
+  .legal-content {
+    padding: 2rem;
+  }
+  .legal-title {
+    font-size: 1.8rem;
+  }
+}
