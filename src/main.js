@@ -106,10 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
           contactForm.innerHTML = `
           <div style="text-align: center; padding: 2rem 0;">
             <span style="font-size: 3rem;">🎉</span>
-            <h3 style="margin-top: 1rem; font-size: 1.5rem; color: var(--primary-neon);">Merci ${name} !</h3>
+            <h3 id="thanks-title" style="margin-top: 1rem; font-size: 1.5rem; color: var(--primary-neon);"></h3>
             <p style="color: var(--text-muted); margin-top: 0.5rem;">Votre message a bien été envoyé. Je reviens vers vous rapidement.</p>
           </div>
           `;
+
+          // Sécurisation XSS : textContent transforme le text brut et bloque toute tentative d'injection de script
+          const thanksTitle = document.getElementById('thanks-title');
+          if (thanksTitle) {
+            thanksTitle.textContent = `Merci {name} !`;
+          }
+          
         } else {
           // Si l'API Web3Forms a un bug
           alert("Une erreur est survenue côté serveur. Veuillez réessayer.");
