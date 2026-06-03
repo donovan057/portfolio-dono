@@ -640,6 +640,44 @@ footer {
   }
 }
 
+/* --- SECTION À PROPOS --- */
+.about-section {
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-title {
+  color: var(--primary-neon);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+/* --- ZONE DU BOUTON CV --- */
+.cv-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn-cv {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-color: var(--primary-neon);
+}
+
 /* --- BOUTONS PROJETS (Même style pilule que les tags --- */
 .project-links {
   display: flex;
