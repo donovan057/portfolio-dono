@@ -191,72 +191,6 @@ a {
   transform: scale(1.05);
 }
 
-/* ==========================================================================
-   3. STRUCTURES ET LAYOUT DES SECTIONS (ORDRE INDEX.HTML)
-   ========================================================================== */
-
-/* --- BARRE DE NAVIGATION --- */
-header {
-  position: fixed;
-  top: 1.2rem;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 0 1.5rem;
-}
-
-.glass-nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 2rem;
-  background: rgba(11, 15, 25, 0.7);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  border-radius: 50px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.logo-img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--primary-neon);
-  transform: translateY(-2px);
-}
-
 /* --- ACCUEIL (HERO) --- */
 .hero {
   min-height: 100vh;
@@ -264,11 +198,14 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 4rem;
+  padding: 8rem 0 4rem 0;
 }
 
 .hero-content {
-  max-width: 750px;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .badge {
@@ -285,7 +222,7 @@ header {
 
 .hero h1 {
   font-size: 4rem;
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: 800;
   margin-bottom: 1.5rem;
   letter-spacing: -1px;
@@ -293,14 +230,63 @@ header {
 
 .hero-subtitle {
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 720px;
+}
+
+/* --- NOUVEAU : STYLES POUR LA TECH STACK DE LA HERO --- */
+.hero-tech-stack {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 2.5rem;
+}
+
+.hero-tech-stack span {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-tech-stack span:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.02);
 }
 
 .hero-buttons {
   display: flex;
   gap: 1.2rem;
   justify-content: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+/* --- NOUVEAU : LIENS DE RÉSEAUX DIRECTS SOUS LES BOUTONS --- */
+.hero-social-shortcuts {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero-social-shortcuts a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted) !important;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-social-shortcuts a:hover {
+  color: var(--primary-neon) !important;
+  transform: translateY(-2px);
 }
 
 /* --- SECTION À PROPOS --- */
@@ -906,5 +892,19 @@ a.footer-link-center,
   /* --- FORCER LE CENTRAGE DU TEXTE ET DES LIENS EN MOBILE --- */
   .footer-professional .separator {
     display: none !important;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero-tech-stack {
+    gap: 0.5rem;
+  }
+  .hero-tech-stack span {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
   }
 }
