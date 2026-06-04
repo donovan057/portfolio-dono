@@ -886,6 +886,34 @@ a.footer-link-center,
   opacity: 0.7;
 }
 
+/* --- BOUTON RETOUR PREMIUM PAGE LÉGALE --- */
+.back-to-portfolio-container {
+  max-width: 900px;
+  margin: 40px auto -120px auto;
+  padding: 0 5%;
+}
+
+.btn-back-portfolio {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+
+.btn-back-portfolio:hover {
+  border-color: var(--primary-neon);
+  color: var(--primary-neon) !important;
+  transform: translateX(-5px);
+}
+
 /* ==========================================================================
    6. RESPONSIVE DESIGN (BREAKPOINTS COMPATIBLES MOBILES)
    ========================================================================== */
