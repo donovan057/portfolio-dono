@@ -1,19 +1,23 @@
-/* STYLE DE LA PAGE ÉTUDE DE CAS (CASE STUDY) --- */
+/* ==========================================================================
+   1. STYLES GÉNÉRAUX & STRUCTURE (COMMUNS TOUT ÉCRANS)
+   ========================================================================== */
 .case-study-container {
-    max-width: 900px;
+    max-width: 1200px; /* Élargi pour un meilleur rendu desktop */
     margin: 0 auto;
     padding: 2rem 5% 6rem 5%;
 }
 
 .case-study-card {
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
 }
 
 .case-study-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .case-study-header h1 {
@@ -29,33 +33,11 @@
     color: var(--text-muted);
 }
 
-/* Gestion de l'image de présentation */
-.case-study-image-wrapper {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
-    margin-bottom: 3rem;
-}
-
-.case-study-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-/* Contenu textuel de l'étude de cas */
-.case-study-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
+/* Éléments Textuels */
 .case-section h2 {
     font-size: 1.6rem;
     color: var(--primary-neon);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-weight: 700;
 }
 
@@ -87,10 +69,10 @@
     color: #f43f5e; /* Une couleur qui ressort un peu pour le code */
 }
 
-/* Grille des fonctionnalités */
+/* Grille des mini-cartes de fonctionnalités */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -102,20 +84,6 @@
     border-radius: 10px;
 }
 
-.feature-mini-card h3 {
-    font-size: 1.15rem;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
-}
-
-.feature-mini-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin: 0;
-}
-
-/* Bouton de fin */
 .case-study-footer {
     margin-top: 4rem;
     text-align: center;
@@ -123,14 +91,79 @@
     padding-top: 2rem;
 }
 
-/* Responsive de la page d'étude de cas */
-@media (max-width: 768px) {
+/* ==========================================================================
+   2. CONFIGURATION DES ÉCRANS ORDINATEURS (DESKTOP) 
+   ========================================================================== */
+@media (min-width: 992px) {
+
+    /* On crée une disposition en 2 colonnes : l'image à gauche, le texte à droite */
+    .case-study-body-layout {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+
+    /* La colonne de gauche (l'image du bot) reste fixe au scroll si on veut */
+    .case-study-image-wrapper {
+        flex: 1;
+        position: sticky;
+        top: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .case-study-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    /* La colonne de droite (les textes de l'étude de cas) */
+    .case-study-content {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+/* ==========================================================================
+   3. CONFIGURATION DES ÉCRANS SMARTPHONES (MOBILE) 
+   ========================================================================== */
+@media (max-width: 991px) {
     .case-study-card {
         padding: 1.5rem;
     }
+
     .case-study-header h1 {
         font-size: 2.2rem;
     }
+
+    /* En mobile, l'image se remet sagement au-dessus du text */
+    .case-study-image-wrapper {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        margin-bottom: 2.5rem;
+    }
+
+    .case-study-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .case-study-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
     .case-section h2 {
         font-size: 1.35rem;
     }

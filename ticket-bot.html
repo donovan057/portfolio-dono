@@ -21,64 +21,66 @@
                 <h1>Discord TicketBot</h1>
                 <p class="project-tagline">Gestion automatisée et sécurisée du support communautaire sur Discord.</p>
             </header>
+            <div class="case-study-body-layout">
+                <div class="case-study-image-wrapper">
+                    <img src="src/img/discord-bot-screen.png" alt="Aperçu de l'interface du TicketBot" class="case-study-img">
+                </div>
 
-            <div class="case-study-image-wrapper">
-                <img src="src/img/discord-bot-screen.png" alt="Aperçu de l'interface du TicketBot" class="case-study-img">
-            </div>
+                <div class="case-study-content">
 
-            <div class="case-study-content">
+                    <section class="case-section">
+                        <h2>🎯 Le Contexte & Le Besoin</h2>
+                        <p>
+                            Dans le cadre de la gestion de communautés ou de serveurs de serveurs Discord (qu'ils soient axés gaming, événementiels ou professionnels), la centralisation et la confidentialité des demandes d'assistance sont primordiales. Les salons de discussion textuels classiques deviennent vite désordonnés.
+                        </p>
+                        <p>
+                            <strong>La solution :</strong> Développer un bot Python autonome capable de générer instantanément des salons de tickets privés et temporaires en un clic, optimisant ainsi le flux de travail de l'équipe de modération.
+                        </p>
+                        </section>
 
-                <section class="case-section">
-                    <h2>🎯 Le Contexte & Le Besoin</h2>
-                    <p>
-                        Dans le cadre de la gestion de communautés ou de serveurs de serveurs Discord (qu'ils soient axés gaming, événementiels ou professionnels), la centralisation et la confidentialité des demandes d'assistance sont primordiales. Les salons de discussion textuels classiques deviennent vite désordonnés.
-                    </p>
-                    <p>
-                        <strong>La solution :</strong> Développer un bot Python autonome capable de générer instantanément des salons de tickets privés et temporaires en un clic, optimisant ainsi le flux de travail de l'équipe de modération.
-                    </p>
-                </section>
+                    <section class="case-section">
+                        <h2>🛠️ L'Architecture & Les Défis Techniques</h2>
+                        <p>
+                            Le projet a été développé en <strong>Python</strong> en utilisant la bibliothèque moderne <code>discord.py</code> (ou <code>nextcord</code>/<code>disnake</code> selon ta stack).
+                        </p>
+                        <ul>
+                            <li><strong>Composant d'interface (UI) :</strong> Utilisation des boutons et menus déroulants natifs de Discord pour une expérience utilisateur fluide, évitant aux membres d'avoir à taper des commandes textuelles complexes.</li>
+                            <li><strong>Gestion fine des permissions :</strong> Le défi principal résidait dans l'isolation complète du salon textuel créé : seul le membre initiateur et l'équipe administrative possèdent les droits d'écriture et de lecture.</li>
+                            <li><strong>Nettoyage automatique :</strong> Implémentation d'un système de fermeture propre pour archiver ou supprimer le salon une fois le problème résolu afin de ne pas surchaarger le serveur Discord.</li>
+                        </ul>
+                    </section>
 
-                <section class="case-section">
-                    <h2>🛠️ L'Architecture & Les Défis Techniques</h2>
-                    <p>
-                        Le projet a été développé en <strong>Python</strong> en utilisant la bibliothèque moderne <code>discord.py</code> (ou <code>nextcord</code>/<code>disnake</code> selon ta stack).
-                    </p>
-                    <ul>
-                        <li><strong>Composant d'interface (UI) :</strong> Utilisation des boutons et menus déroulants natifs de Discord pour une expérience utilisateur fluide, évitant aux membres d'avoir à taper des commandes textuelles complexes.</li>
-                        <li><strong>Gestion fine des permissions :</strong> Le défi principal résidait dans l'isolation complète du salon textuel créé : seul le membre initiateur et l'équipe administrative possèdent les droits d'écriture et de lecture.</li>
-                        <li><strong>Nettoyage automatique :</strong> Implémentation d'un système de fermeture propre pour archiver ou supprimer le salon une fois le problème résolu afin de ne pas surchaarger le serveur Discord.</li>
-                    </ul>
-                </section>
-
-                <section class="case-section">
-                    <h2>🚀 Fonctionnalités Clés Implémentées</h2>
-                    <div class="features-grid">
-                        <div class="feature-mini-card">
-                            <h3>⚡️ Un Clic suffit</h3>
-                            <p>Création instantanée du ticket via un bouton persistant sous un message d'accueil personnalisé.</p>
+                    <section class="case-section">
+                        <h2>🚀 Fonctionnalités Clés Implémentées</h2>
+                        <div class="features-grid">
+                            <div class="feature-mini-card">
+                                <h3>⚡️ Un Clic suffit</h3>
+                                <p>Création instantanée du ticket via un bouton persistant sous un message d'accueil personnalisé.</p>
+                            </div>
+                            <div class="feature-mini-card">
+                                <h3>🔒 salons Privés</h3>
+                                <p>Permissions gérées dynamiquement à la volée à la création du salon textuel dédié.</p>
+                            </div>
+                            <div class="feature-mini-card">
+                                <h3>🧹 Commande de Fermeture</h3>
+                                <p>Clôture sécurisée avec confirmation pour éviter les suppressions accidentelles de tickets ouverts</p>
+                            </div>
                         </div>
-                        <div class="feature-mini-card">
-                            <h3>🔒 salons Privés</h3>
-                            <p>Permissions gérées dynamiquement à la volée à la création du salon textuel dédié.</p>
-                        </div>
-                        <div class="feature-mini-card">
-                            <h3>🧹 Commande de Fermeture</h3>
-                            <p>Clôture sécurisée avec confirmation pour éviter les suppressions accidentelles de tickets ouverts</p>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section class="case-section">
-                    <h2>🔮 Évolutions Futures</h2>
-                    <p>
-                        Afin de pousser ce projet encore plus loin, notamment en vue de ma future formation **ABCI au CRM de Mulhouse**, je prévois d'ajouter : 
-                    </p>
-                    <ul>
-                        <li>Une persistance des données avec une base de données <strong>SQLite</strong> pour suivre l'historique et les statistiques des tickets ouverts.</li>
-                        <li>Un système de <strong>Transcript</strong> automatique qui génère un fichier HTML ou text contenant tout l'historique de la conversation avant la suppression du salon.</li>
-                    </ul>
-                </section>
+                    <section class="case-section">
+                        <h2>🔮 Évolutions Futures</h2>
+                        <p>
+                            Afin de pousser ce projet encore plus loin, notamment en vue de ma future formation **ABCI au CRM de Mulhouse**, je prévois d'ajouter : 
+                        </p>
+                        <ul>
+                            <li>Une persistance des données avec une base de données <strong>SQLite</strong> pour suivre l'historique et les statistiques des tickets ouverts.</li>
+                            <li>Un système de <strong>Transcript</strong> automatique qui génère un fichier HTML ou text contenant tout l'historique de la conversation avant la suppression du salon.</li>
+                        </ul>
+                    </section>
 
+                </div>
+            
             </div>
 
             <footer class="case-study-footer">
@@ -88,7 +90,7 @@
         </article>
     </main>
 
-    <footer class="case-study-footer">
+    <footer class="footer-professional">
         <div class="footer-container">
             <p>&copy; 2026 • Fait avec passion sous Linux</p>
             <div class="footer-links">
