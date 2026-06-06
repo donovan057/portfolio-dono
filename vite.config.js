@@ -5,9 +5,9 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: resolveConfig(__dirname, 'index.html'),
-                ticketBot: (__dirname, 'ticket-bot.html'),
-                legal: (__dirname, 'mentions-legales.html')
+                main: path.resolve(__dirname, 'index.html'),
+                ticketBot: path.resolve(__dirname, 'ticket-bot.html'),
+                legal: path.resolve(__dirname, 'mentions-legales.html')
             }
         }
     }
