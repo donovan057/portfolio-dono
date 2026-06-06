@@ -1,0 +1,137 @@
+/* STYLE DE LA PAGE ÉTUDE DE CAS (CASE STUDY) --- */
+.case-study-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 5% 6rem 5%;
+}
+
+.case-study-card {
+    padding: 3rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.case-study-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.case-study-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.project-tagline {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* Gestion de l'image de présentation */
+.case-study-image-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 3rem;
+}
+
+.case-study-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Contenu textuel de l'étude de cas */
+.case-study-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.case-section h2 {
+    font-size: 1.6rem;
+    color: var(--primary-neon);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.case-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.case-section ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.case-section li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    list-style-type: square;
+}
+
+.case-section code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #f43f5e; /* Une couleur qui ressort un peu pour le code */
+}
+
+/* Grille des fonctionnalités */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-mini-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.feature-mini-card h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.feature-mini-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Bouton de fin */
+.case-study-footer {
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 2rem;
+}
+
+/* Responsive de la page d'étude de cas */
+@media (max-width: 768px) {
+    .case-study-card {
+        padding: 1.5rem;
+    }
+    .case-study-header h1 {
+        font-size: 2.2rem;
+    }
+    .case-section h2 {
+        font-size: 1.35rem;
+    }
+}
