@@ -2,9 +2,9 @@
    1. STYLES GÉNÉRAUX & STRUCTURE (COMMUNS TOUT ÉCRANS)
    ========================================================================== */
 .case-study-container {
-    max-width: 1200px; /* Élargi pour un meilleur rendu desktop */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 5% 6rem 5%;
+    padding: 1rem 5% 6rem 5%;
 }
 
 .case-study-card {
@@ -183,10 +183,13 @@
    4. BOUTON RETOUR POSITIONNÉ ET EN PREMIER PLAN
    ========================================================================== */
 .back-to-portfolio-container {
-    position: absolute;      /* Sort le bouton du flux pour le caler en haut */
-    top: 20px;               /* Marge par rapport au haut de l'écran */
-    left: 20px;              /* Aligne le bouton tout à gauche */
-    z-index: 9999;           /* Force le bouton à passer au tout premier plan */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 5% 0 5%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 10;         
 }
 
 .btn-back-portfolio {
