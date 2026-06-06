@@ -143,6 +143,16 @@
         font-size: 2.2rem;
     }
 
+    /* 🟢 AJUSTEMENT DU BOUTON RETOUR POUR LE MOBILE */
+    .back-to-portfolio-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 1.5rem;
+        display: flex;
+        justify-content: flex-start;
+    }
+
     /* En mobile, l'image se remet sagement au-dessus du text */
     .case-study-image-wrapper {
         width: 100%;
@@ -167,4 +177,36 @@
     .case-section h2 {
         font-size: 1.35rem;
     }
+}
+
+/* ==========================================================================
+   4. BOUTON RETOUR POSITIONNÉ ET EN PREMIER PLAN
+   ========================================================================== */
+.back-to-portfolio-container {
+    position: absolute;      /* Sort le bouton du flux pour le caler en haut */
+    top: 20px;               /* Marge par rapport au haut de l'écran */
+    left: 20px;              /* Aligne le bouton tout à gauche */
+    z-index: 9999;           /* Force le bouton à passer au tout premier plan */
+}
+
+.btn-back-portfolio {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted) !important;
+    backdrop-filter: blur(12px);
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+}
+
+.btn-back-portfolio:hover {
+    border-color: var(--primary-neon);
+    color: var(--primary-neon) !important;
+    transform: translateX(-3px); /* Petit effet de glissement vers la gauche */
 }
