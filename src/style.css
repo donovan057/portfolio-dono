@@ -298,8 +298,45 @@ a {
 /* --- NOUVEAU : LIENS DE RÉSEAUX DIRECTS SOUS LES BOUTONS --- */
 .hero-social-shortcuts {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem; /* Un peu d'espace avec le texte du dessus */
+}
+
+.btn-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main) !important;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Effet d'illumination au survol */
+.btn-social:hover {
+  background: rgba(56, 189, 248, 0.05) !important; /* Léger reflet cyan */
+  border-color: var(--primary-neon);                 /* Bordure néon active */
+  color: var(--primary-neon) !important;             /* Le texte devient bleu cyan */
+  transform: translateY(-3px);                       /* Le bouton s'élève */
+  box-shadow: 0 8px 20px rgba(56, 189, 2248, 0.15);  /* Halo lumineux */
+}
+
+.btn-social span {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Grossissement de l'icône au survol */
+.btn-social:hover span {
+  transform: scale(1.2);
 }
 
 .hero-social-shortcuts a {
