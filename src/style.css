@@ -869,6 +869,7 @@ a.footer-link-center,
   text-align: center;
   background: linear-gradient(90deg, #fff, #a0aec0);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
